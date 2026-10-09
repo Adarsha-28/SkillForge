@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0f0e17;
+    color: #fffffe;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page-enter {
+  animation: pageFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0e17;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff6b35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e45c3a;
+}
+
+/* Custom glow animations and gradients */
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: var(--progress-width); }
+}
+
+.animate-fill {
+  animation: fillBar 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Glow effects */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, rgba(228, 92, 58, 0.05) 50%, transparent 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+/* Skeleton loader wave */
+.skeleton-box {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 107, 53, 0.05);
+}
+.skeleton-box::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 107, 53, 0.08) 20%,
+    rgba(255, 107, 53, 0.15) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+  content: '';
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ==========================================
+   LIGHT MODE STYLING OVERRIDES
+   ========================================== */
+body.light {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+body.light ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+/* Background Overrides */
+body.light .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+body.light .bg-white\/\[0\.03\] {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+body.light .bg-white\/\[0\.02\] {
+  background-color: rgba(15, 23, 42, 0.015) !important;
+}
+body.light .bg-white\/\[0\.01\] {
+  background-color: rgba(15, 23, 42, 0.01) !important;
+}
+body.light .bg-\[\#1a1a2e\] {
+  background-color: #ffffff !important;
+}
+body.light .bg-\[\#10101a\] {
+  background-color: #ffffff !important;
+}
+body.light .bg-\[\#1a1a2e\]\/10 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Header Overrides */
+body.light header#navbar.bg-opacity-70 {
+  background-color: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Border Overrides */
+body.light .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+body.light .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.05) !important;
+}
+body.light .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+/* Text Overrides */
+body.light .text-white {
+  color: #0f172a !important;
+}
+body.light .text-white\/90 {
+  color: rgba(15, 23, 42, 0.9) !important;
+}
+body.light .text-white\/80 {
+  color: rgba(15, 23, 42, 0.8) !important;
+}
+body.light .text-white\/70 {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+body.light .text-\[\#fffffe\] {
+  color: #0f172a !important;
+}
+body.light .text-\[\#fffffe\]\/70 {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+body.light .text-\[\#fffffe\]\/90 {
+  color: rgba(15, 23, 42, 0.9) !important;
+}
+body.light .text-\[\#a8a4a0\] {
+  color: #475569 !important;
+}
+body.light .text-\[\#a8a4a0\]\/50 {
+  color: rgba(71, 85, 105, 0.5) !important;
+}
+body.light .text-\[\#5c5755\] {
+  color: #64748b !important;
+}
+body.light .text-\[\#5c5755\]\/50 {
+  color: rgba(100, 116, 139, 0.5) !important;
+}
+
+/* Hover State Overrides */
+body.light .hover\:bg-white\/\[0\.02\]:hover {
+  background-color: rgba(15, 23, 42, 0.02) !important;
+}
+body.light .hover\:bg-white\/\[0\.05\]:hover {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+body.light .hover\:border-white\/10:hover {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+body.light .hover\:text-white:hover {
+  color: #0f172a !important;
+}
+
+/* Inputs & Form Elements */
+body.light input,
+body.light textarea,
+body.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+body.light input::placeholder,
+body.light textarea::placeholder {
+  color: rgba(71, 85, 105, 0.5) !important;
+}
+
+/* Modals & Popups Glassmorphism */
+body.light .backdrop-blur-xl,
+body.light .backdrop-blur-md {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Decorative Orbs opacity adjustment for visibility */
+body.light .bg-\[\#ff6b35\] {
+  opacity: 0.06 !important;
+}
+body.light .bg-\[\#e45c3a\] {
+  opacity: 0.05 !important;
+}
+body.light .bg-\[\#f7c59f\] {
+  opacity: 0.04 !important;
+}
+
+/* SVGs & Charts Adjustment */
+body.light svg polygon[stroke="currentColor"] {
+  stroke: rgba(15, 23, 42, 0.2) !important;
+}
+body.light svg circle[stroke="currentColor"] {
+  stroke: rgba(15, 23, 42, 0.2) !important;
+}
+body.light svg line[stroke="currentColor"] {
+  stroke: rgba(15, 23, 42, 0.15) !important;
+}
+body.light svg text {
+  fill: #475569 !important;
+}
+
